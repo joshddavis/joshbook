@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Basic Commands · GitBook</title>
+        <title>Maven · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../maven/" />
+    <link rel="next" href="basics.html" />
     
     
-    <link rel="prev" href="./" />
+    <link rel="prev" href="../docker/basiccommands.html" />
     
 
     </head>
@@ -102,9 +102,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="./">
+        <li class="chapter " data-level="1.2" data-path="../docker/">
             
-                <a href="./">
+                <a href="../docker/">
             
                     
                     Docker
@@ -116,9 +116,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.2.1" data-path="basiccommands.html">
+        <li class="chapter " data-level="1.2.1" data-path="../docker/basiccommands.html">
             
-                <a href="basiccommands.html">
+                <a href="../docker/basiccommands.html">
             
                     
                     Basic Commands
@@ -134,9 +134,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="../maven/">
+        <li class="chapter active" data-level="1.3" data-path="./">
             
-                <a href="../maven/">
+                <a href="./">
             
                     
                     Maven
@@ -148,9 +148,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../maven/basics.html">
+        <li class="chapter " data-level="1.3.1" data-path="basics.html">
             
-                <a href="../maven/basics.html">
+                <a href="basics.html">
             
                     
                     Basics
@@ -161,9 +161,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="../maven/surefire.html">
+        <li class="chapter " data-level="1.3.2" data-path="surefire.html">
             
-                <a href="../maven/surefire.html">
+                <a href="surefire.html">
             
                     
                     SureFire Plugin
@@ -209,7 +209,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Basic Commands</a>
+        <a href=".." >Maven</a>
     </h1>
 </div>
 
@@ -224,18 +224,18 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="basic-commands">Basic Commands</h1>
-<p><strong>docker run ubuntu</strong> - will will pull down the image from docker hub if you don&apos;t already have it. it only needs to do this the first time</p>
-<p><strong>docker ps</strong> - lists all running containers and some basic info regarding them (container id, image, status)</p>
-<p><strong>docker ps -a</strong> - lists all running and previously executed containers</p>
-<p><strong>docker stop [name]</strong> - stops the container based on the name...can also use id</p>
-<p><strong>docker rm [name]</strong> - deletes a stopped container for good</p>
-<p><strong>docker images</strong> - lists downloaded images</p>
-<p><strong>docker rmi [image]</strong> - used to remove images for good...must ensure no containers are currently using....</p>
-<p><strong>docker pull ubuntu</strong> - only downloads the image</p>
-<p><em>docker containers are meant to run applications...if there&apos;s nothing running, it stops the container immediately</em></p>
-<p><strong>docker run -d Ubuntu sleep 1000</strong> - keeps the container alive (sleeping) for a thousand seconds before stopping it....the -d flag runs the command in the background so you can stay at your prompt</p>
-<p><strong>docker exec [name] cat /etc/hosts</strong> - executes a command on a running container...in this example it runs the cat command which returns the contents of the listed directory</p>
+                                <h1 id="maven">Maven</h1>
+<p>Apache Maven is a software project management and build management tool for Java frameworks. It acts as a central repository to get dependencies.</p>
+<p><strong>Maven Repositories</strong> - <a href="https://mvnrepository.com/&#x200B;" target="_blank">https://mvnrepository.com/&#x200B;</a></p>
+<p><br></p>
+<h4 id="installation">Installation</h4>
+<ol>
+<li><a href="https://maven.apache.org/download.cgi" target="_blank">https://maven.apache.org/download.cgi</a></li>
+<li>Download the Binary Zip archive</li>
+<li>Create MAVEN_HOME system variable and copy the path to unzipped maven directory</li>
+<li>Go into bin folder and copy that path to the system PATH variable</li>
+<li>Use &quot;mvn --version&quot; to confirm installed version</li>
+</ol>
 
                                 
                                 </section>
@@ -263,12 +263,12 @@
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Docker">
+                <a href="../docker/basiccommands.html" class="navigation navigation-prev " aria-label="Previous page: Basic Commands">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../maven/" class="navigation navigation-next " aria-label="Next page: Maven">
+                <a href="basics.html" class="navigation navigation-next " aria-label="Next page: Basics">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -279,7 +279,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Basic Commands","level":"1.2.1","depth":2,"next":{"title":"Maven","level":"1.3","depth":1,"path":"maven/README.md","ref":"maven/README.md","articles":[{"title":"Basics","level":"1.3.1","depth":2,"path":"maven/basics.md","ref":"maven/basics.md","articles":[]},{"title":"SureFire Plugin","level":"1.3.2","depth":2,"path":"maven/surefire.md","ref":"maven/surefire.md","articles":[]}]},"previous":{"title":"Docker","level":"1.2","depth":1,"path":"docker/README.md","ref":"docker/README.md","articles":[{"title":"Basic Commands","level":"1.2.1","depth":2,"path":"docker/basiccommands.md","ref":"docker/basiccommands.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docker/basiccommands.md","mtime":"2018-07-16T02:55:56.084Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-16T03:25:02.669Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Maven","level":"1.3","depth":1,"next":{"title":"Basics","level":"1.3.1","depth":2,"path":"maven/basics.md","ref":"maven/basics.md","articles":[]},"previous":{"title":"Basic Commands","level":"1.2.1","depth":2,"path":"docker/basiccommands.md","ref":"docker/basiccommands.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"maven/README.md","mtime":"2018-07-16T03:17:52.488Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-16T03:25:02.669Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
