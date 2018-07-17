@@ -1,6 +1,8 @@
 # Summary
 
 * [Intro](README.md)
+* [HTML](html/README.md)
+   * [Boilerplate](html/boilerplate.md)
 * [Maven](maven/README.md)
    * [Project Setup](maven/projectsetup.md)
    * [SureFire Plugin](maven/surefire.md)
