@@ -1,4 +1,4 @@
-# Maven Basics
+# Maven Project Setup
 
 #### Basic Terms
 
