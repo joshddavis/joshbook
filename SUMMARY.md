@@ -8,5 +8,6 @@
    * [Basic Commands](docker/basiccommands.md)
 * [Vagrant](vagrant/README.md)
   * [Command Reference](vagrant/commandreference.md)
-  * [Vagrant Files](vagrant/vagrantfiles.md)
+  * [Vagrantfiles](vagrant/vagrantfiles.md)
   * [LAMP Provisions](vagrant/lampprovisions.md)
+* [Jenkins](jenkins/README.md)

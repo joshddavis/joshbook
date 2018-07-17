@@ -1,5 +1,5 @@
 # LAMP Stack Provisions
-If you want to provision a LAMP stack using the vagrant file example on the Vagrant Files page, create a file called bootstrap.sh that contains the example below and place it in the same directory as the vagrant file.
+If you want to provision a LAMP stack using the vagrant file example on the [Vagrantfiles](/vagrant/vagrantfiles.html) page, create a file called bootstrap.sh that contains the example below and place it in the same directory as the vagrant file.
 ```
 # Update Packages
 apt-get update

@@ -3,7 +3,7 @@ Some basic vagrant commands
 
 <br/>
 
-**vagrant init [boxname]** - creates a vagrant file in the working directory and initializes a box based on the boxname. This box name corresponds to the boxes found in the directory linked on the Vagrant page.
+**vagrant init [boxname]** - creates a vagrant file in the working directory and initializes a box based on the boxname. This box name corresponds to the boxes found in the directory linked on the [Vagrant](/vagrant) page.
 
 **vagrant up** - starts the box based on the vagrantfile. If running the first time, it may take a while for the downloads and provisioning. Any subsequent runs of this command will not re-download or provision the machine again.
 

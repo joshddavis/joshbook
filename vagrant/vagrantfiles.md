@@ -1,4 +1,4 @@
-# Vagrant Files
+# Vagrantfiles
 Vagrant files control how the box and environment are provisioned. By running the init command on the prior page, a vagrant file will be generated in the working directory if one doesn't already exist.
 
 <br/>

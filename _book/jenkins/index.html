@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Basic Commands · GitBook</title>
+        <title>Jenkins · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../vagrant/" />
     
-    
-    <link rel="prev" href="./" />
+    <link rel="prev" href="../vagrant/lampprovisions.html" />
     
 
     </head>
@@ -147,9 +145,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="./">
+        <li class="chapter " data-level="1.3" data-path="../docker/">
             
-                <a href="./">
+                <a href="../docker/">
             
                     
                     Docker
@@ -161,9 +159,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.3.1" data-path="basiccommands.html">
+        <li class="chapter " data-level="1.3.1" data-path="../docker/basiccommands.html">
             
-                <a href="basiccommands.html">
+                <a href="../docker/basiccommands.html">
             
                     
                     Basic Commands
@@ -237,9 +235,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="../jenkins/">
+        <li class="chapter active" data-level="1.5" data-path="./">
             
-                <a href="../jenkins/">
+                <a href="./">
             
                     
                     Jenkins
@@ -280,7 +278,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Basic Commands</a>
+        <a href=".." >Jenkins</a>
     </h1>
 </div>
 
@@ -295,19 +293,15 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="basic-commands">Basic Commands</h1>
-<p><strong>docker run ubuntu</strong> - will will pull down the image from docker hub if you don&apos;t already have it. it only needs to do this the first time</p>
-<p><strong>docker ps</strong> - lists all running containers and some basic info regarding them (container id, image, status)</p>
-<p><strong>docker ps -a</strong> - lists all running and previously executed containers</p>
-<p><strong>docker stop [name]</strong> - stops the container based on the name...can also use id</p>
-<p><strong>docker rm [name]</strong> - deletes a stopped container for good</p>
-<p><strong>docker images</strong> - lists downloaded images</p>
-<p><strong>docker rmi [image]</strong> - used to remove images for good...must ensure no containers are currently using....</p>
-<p><strong>docker pull ubuntu</strong> - only downloads the image</p>
-<p><em>docker containers are meant to run applications...if there&apos;s nothing running, it stops the container immediately</em></p>
-<p><strong>docker run -d Ubuntu sleep 1000</strong> - keeps the container alive (sleeping) for a thousand seconds before stopping it....the -d flag runs the command in the background so you can stay at your prompt</p>
-<p><strong>docker exec [name] cat /etc/hosts</strong> - executes a command on a running container...in this example it runs the cat command which returns the contents of the listed directory</p>
-
+                                <h1 id="jenkins">Jenkins</h1>
+<p>Jenkins is a self-contained, open source automation server which can be used to automate all sorts of tasks related to building, testing, and delivering or deploying software.</p>
+<p>Jenkins can be installed through native system packages, Docker, or even run standalone by any machine with a Java Runtime Environment (JRE) installed.</p>
+<p><strong>Download</strong> - <a href="https://jenkins.io/download/&#x200B;" target="_blank">https://jenkins.io/download/&#x200B;</a></p>
+<p><br></p>
+<h4 id="setup">Setup</h4>
+<p>Download the generic war from the download link above, navigate to the downloads folder and run the following command</p>
+<pre><code>java -jar jenkins.war -httpPort=9090
+</code></pre>
                                 
                                 </section>
                             
@@ -334,14 +328,10 @@
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Docker">
+                <a href="../vagrant/lampprovisions.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: LAMP Provisions">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="../vagrant/" class="navigation navigation-next " aria-label="Next page: Vagrant">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -350,7 +340,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Basic Commands","level":"1.3.1","depth":2,"next":{"title":"Vagrant","level":"1.4","depth":1,"path":"vagrant/README.md","ref":"vagrant/README.md","articles":[{"title":"Command Reference","level":"1.4.1","depth":2,"path":"vagrant/commandreference.md","ref":"vagrant/commandreference.md","articles":[]},{"title":"Vagrantfiles","level":"1.4.2","depth":2,"path":"vagrant/vagrantfiles.md","ref":"vagrant/vagrantfiles.md","articles":[]},{"title":"LAMP Provisions","level":"1.4.3","depth":2,"path":"vagrant/lampprovisions.md","ref":"vagrant/lampprovisions.md","articles":[]}]},"previous":{"title":"Docker","level":"1.3","depth":1,"path":"docker/README.md","ref":"docker/README.md","articles":[{"title":"Basic Commands","level":"1.3.1","depth":2,"path":"docker/basiccommands.md","ref":"docker/basiccommands.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docker/basiccommands.md","mtime":"2018-07-16T02:55:56.084Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-17T17:40:38.314Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Jenkins","level":"1.5","depth":1,"previous":{"title":"LAMP Provisions","level":"1.4.3","depth":2,"path":"vagrant/lampprovisions.md","ref":"vagrant/lampprovisions.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"jenkins/README.md","mtime":"2018-07-17T17:35:15.667Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-17T17:40:38.314Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
