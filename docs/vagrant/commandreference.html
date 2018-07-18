@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>HTML · GitBook</title>
+        <title>Command Reference · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="boilerplate.html" />
+    <link rel="next" href="vagrantfiles.html" />
     
     
-    <link rel="prev" href="../" />
+    <link rel="prev" href="./" />
     
 
     </head>
@@ -102,9 +102,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2" data-path="./">
+        <li class="chapter " data-level="1.2" data-path="../html/">
             
-                <a href="./">
+                <a href="../html/">
             
                     
                     HTML
@@ -116,9 +116,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="boilerplate.html">
+        <li class="chapter " data-level="1.2.1" data-path="../html/boilerplate.html">
             
-                <a href="boilerplate.html">
+                <a href="../html/boilerplate.html">
             
                     
                     Boilerplate
@@ -211,9 +211,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="../vagrant/">
+        <li class="chapter " data-level="1.5" data-path="./">
             
-                <a href="../vagrant/">
+                <a href="./">
             
                     
                     Vagrant
@@ -225,9 +225,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="../vagrant/commandreference.html">
+        <li class="chapter active" data-level="1.5.1" data-path="commandreference.html">
             
-                <a href="../vagrant/commandreference.html">
+                <a href="commandreference.html">
             
                     
                     Command Reference
@@ -238,9 +238,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="../vagrant/vagrantfiles.html">
+        <li class="chapter " data-level="1.5.2" data-path="vagrantfiles.html">
             
-                <a href="../vagrant/vagrantfiles.html">
+                <a href="vagrantfiles.html">
             
                     
                     Vagrantfiles
@@ -251,9 +251,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.3" data-path="../vagrant/lampprovisions.html">
+        <li class="chapter " data-level="1.5.3" data-path="lampprovisions.html">
             
-                <a href="../vagrant/lampprovisions.html">
+                <a href="lampprovisions.html">
             
                     
                     LAMP Provisions
@@ -312,7 +312,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >HTML</a>
+        <a href=".." >Command Reference</a>
     </h1>
 </div>
 
@@ -327,8 +327,16 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="html">HTML</h1>
-<p>A collection of useful links and tutorials around HTML</p>
+                                <h1 id="vagrant-command-reference">Vagrant Command Reference</h1>
+<p>Some basic vagrant commands</p>
+<p><br></p>
+<p><strong>vagrant init [boxname]</strong> - creates a vagrant file in the working directory and initializes a box based on the boxname. This box name corresponds to the boxes found in the directory linked on the <a href=".">Vagrant</a> page.</p>
+<p><strong>vagrant up</strong> - starts the box based on the vagrantfile. If running the first time, it may take a while for the downloads and provisioning. Any subsequent runs of this command will not re-download or provision the machine again.</p>
+<p><strong>vagrant halt</strong> - stops the virtual machine</p>
+<p><strong>vagrant destroy</strong> - deletes the virtual machine entirely</p>
+<p><strong>vagrant reload</strong> - reboots the machine and takes in any changes to the vagrant files</p>
+<p><strong>vagrant status</strong> - gives a status of the current machine</p>
+<p><strong>vagrant ssh</strong> - ssh into the virtual machine. Typing &quot;exit&quot; will take you back out to our own command prompt</p>
 
                                 
                                 </section>
@@ -356,12 +364,12 @@
 
             
                 
-                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Intro">
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Vagrant">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="boilerplate.html" class="navigation navigation-next " aria-label="Next page: Boilerplate">
+                <a href="vagrantfiles.html" class="navigation navigation-next " aria-label="Next page: Vagrantfiles">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -372,7 +380,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"HTML","level":"1.2","depth":1,"next":{"title":"Boilerplate","level":"1.2.1","depth":2,"path":"html/boilerplate.md","ref":"html/boilerplate.md","articles":[]},"previous":{"title":"Intro","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"html/README.md","mtime":"2018-07-17T17:46:44.826Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-18T00:22:07.086Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Command Reference","level":"1.5.1","depth":2,"next":{"title":"Vagrantfiles","level":"1.5.2","depth":2,"path":"vagrant/vagrantfiles.md","ref":"vagrant/vagrantfiles.md","articles":[]},"previous":{"title":"Vagrant","level":"1.5","depth":1,"path":"vagrant/README.md","ref":"vagrant/README.md","articles":[{"title":"Command Reference","level":"1.5.1","depth":2,"path":"vagrant/commandreference.md","ref":"vagrant/commandreference.md","articles":[]},{"title":"Vagrantfiles","level":"1.5.2","depth":2,"path":"vagrant/vagrantfiles.md","ref":"vagrant/vagrantfiles.md","articles":[]},{"title":"LAMP Provisions","level":"1.5.3","depth":2,"path":"vagrant/lampprovisions.md","ref":"vagrant/lampprovisions.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"vagrant/commandreference.md","mtime":"2018-07-17T17:38:53.050Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-18T00:57:00.514Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -380,10 +388,6 @@
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

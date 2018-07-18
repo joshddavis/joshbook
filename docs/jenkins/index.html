@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Project Setup · GitBook</title>
+        <title>Jenkins · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="surefire.html" />
     
-    
-    <link rel="prev" href="./" />
+    <link rel="prev" href="../vagrant/lampprovisions.html" />
     
 
     </head>
@@ -134,9 +132,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="./">
+        <li class="chapter " data-level="1.3" data-path="../maven/">
             
-                <a href="./">
+                <a href="../maven/">
             
                     
                     Maven
@@ -148,9 +146,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.3.1" data-path="projectsetup.html">
+        <li class="chapter " data-level="1.3.1" data-path="../maven/projectsetup.html">
             
-                <a href="projectsetup.html">
+                <a href="../maven/projectsetup.html">
             
                     
                     Project Setup
@@ -161,9 +159,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="surefire.html">
+        <li class="chapter " data-level="1.3.2" data-path="../maven/surefire.html">
             
-                <a href="surefire.html">
+                <a href="../maven/surefire.html">
             
                     
                     SureFire Plugin
@@ -269,9 +267,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="../jenkins/">
+        <li class="chapter active" data-level="1.6" data-path="./">
             
-                <a href="../jenkins/">
+                <a href="./">
             
                     
                     Jenkins
@@ -312,7 +310,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Project Setup</a>
+        <a href=".." >Jenkins</a>
     </h1>
 </div>
 
@@ -327,35 +325,15 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="maven-project-setup">Maven Project Setup</h1>
-<h4 id="basic-terms">Basic Terms</h4>
-<ul>
-<li><p><strong>Artifact</strong> - An artifact is a file, usually a JAR, that gets deployed to a Maven repository</p>
-</li>
-<li><p><strong>GroupId</strong> - GroupId will identify your project uniquely across all projects</p>
-</li>
-<li><p><strong>archetype:generate</strong> - Generates a new project from an archetype</p>
-</li>
-</ul>
+                                <h1 id="jenkins">Jenkins</h1>
+<p>Jenkins is a self-contained, open source automation server which can be used to automate all sorts of tasks related to building, testing, and delivering or deploying software.</p>
+<p>Jenkins can be installed through native system packages, Docker, or even run standalone by any machine with a Java Runtime Environment (JRE) installed.</p>
+<p><strong>Download</strong> - <a href="https://jenkins.io/download/&#x200B;" target="_blank">https://jenkins.io/download/&#x200B;</a></p>
 <p><br></p>
-<h4 id="creating-a-new-maven-project">Creating a New Maven Project</h4>
-<p>The below line of code will create a new maven project in the current directory that will use the &quot;quickstart&quot; archetype. The project will be in a folder named after the artifact ID. Group ID will be the name of the initial package in the project.</p>
-<pre><code>mvn archetype:generate -DgroupId=teamsite -DartifactId=tsautomation -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
-</code></pre><p><br></p>
-<h4 id="importing-a-maven-project-into-eclipse">Importing a Maven Project Into Eclipse</h4>
-<ol>
-<li>Before importing to eclipse, you need to make a quick change. Eclipse is expecting a .classpath file in order to import. This file does not get created using the above maven code to set up a project.</li>
-<li>Navigate into the project folder that contains the POM.xml file</li>
-<li>Run the following command: mvn eclipse:eclipse</li>
-<li>The above command should create the .classpath file and a .project file in the working directory.</li>
-<li>By default, recent versions of eclipse already contain the maven plugin. To confirm if your version of eclipse contains the plugin, go to window &gt; preferences to see if there is a &quot;maven&quot; item in the left column.</li>
-<li>Within that same preferences area, select &quot;user settings&quot; for maven. Confirm the &quot;Local Repository&quot; contains the path to the maven repository. It may look something like this: <strong>&quot;C:\Users\Josh.m2\repository&quot;</strong></li>
-<li>Choose File &gt; Import</li>
-<li>Choose Maven folder and select &quot;Existing Maven Projects&quot; and click Next</li>
-<li>The Root Directory should be set as the project folder that was created by Maven</li>
-<li>Click Finish</li>
-</ol>
-
+<h4 id="setup">Setup</h4>
+<p>Download the generic war from the download link above, navigate to the downloads folder and run the following command</p>
+<pre><code>java -jar jenkins.war -httpPort=9090
+</code></pre>
                                 
                                 </section>
                             
@@ -382,14 +360,10 @@
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Maven">
+                <a href="../vagrant/lampprovisions.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: LAMP Provisions">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="surefire.html" class="navigation navigation-next " aria-label="Next page: SureFire Plugin">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -398,7 +372,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Project Setup","level":"1.3.1","depth":2,"next":{"title":"SureFire Plugin","level":"1.3.2","depth":2,"path":"maven/surefire.md","ref":"maven/surefire.md","articles":[]},"previous":{"title":"Maven","level":"1.3","depth":1,"path":"maven/README.md","ref":"maven/README.md","articles":[{"title":"Project Setup","level":"1.3.1","depth":2,"path":"maven/projectsetup.md","ref":"maven/projectsetup.md","articles":[]},{"title":"SureFire Plugin","level":"1.3.2","depth":2,"path":"maven/surefire.md","ref":"maven/surefire.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"maven/projectsetup.md","mtime":"2018-07-17T16:41:27.950Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-18T00:22:07.086Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Jenkins","level":"1.6","depth":1,"previous":{"title":"LAMP Provisions","level":"1.5.3","depth":2,"path":"vagrant/lampprovisions.md","ref":"vagrant/lampprovisions.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"jenkins/README.md","mtime":"2018-07-17T17:35:15.667Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-18T00:57:00.514Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -406,10 +380,6 @@
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

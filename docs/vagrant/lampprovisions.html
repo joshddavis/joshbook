@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Vagrantfiles · GitBook</title>
+        <title>LAMP Provisions · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="lampprovisions.html" />
+    <link rel="next" href="../jenkins/" />
     
     
-    <link rel="prev" href="commandreference.html" />
+    <link rel="prev" href="vagrantfiles.html" />
     
 
     </head>
@@ -238,7 +238,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5.2" data-path="vagrantfiles.html">
+        <li class="chapter " data-level="1.5.2" data-path="vagrantfiles.html">
             
                 <a href="vagrantfiles.html">
             
@@ -251,7 +251,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.3" data-path="lampprovisions.html">
+        <li class="chapter active" data-level="1.5.3" data-path="lampprovisions.html">
             
                 <a href="lampprovisions.html">
             
@@ -312,7 +312,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Vagrantfiles</a>
+        <a href=".." >LAMP Provisions</a>
     </h1>
 </div>
 
@@ -327,61 +327,52 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="vagrantfiles">Vagrantfiles</h1>
-<p>Vagrant files control how the box and environment are provisioned. By running the init command on the prior page, a vagrant file will be generated in the working directory if one doesn&apos;t already exist.</p>
-<p><br></p>
-<h4 id="main-parts-of-a-vagrant-file">Main Parts of a Vagrant File</h4>
-<ul>
-<li><p><strong>config.vm.box</strong> - operating system</p>
-</li>
-<li><p><strong>config.vm.provider</strong> - virtualbox</p>
-</li>
-<li><p><strong>config.vm.network</strong> - how host computer sees your box</p>
-</li>
-<li><p><strong>config.vm.synced_folder</strong> - how you access files from your computer</p>
-</li>
-<li><p><strong>config.vm.provision</strong> - what we want set up (lamp, mean, etc..)</p>
-</li>
-</ul>
-<p><br></p>
-<h4 id="vagrant-file-example">Vagrant File Example</h4>
-<p>The below example shows a vagrant file that points to a separate bootstrap.sh file used for provisioning the box.</p>
-<pre><code># -*- mode: ruby -*-
-# vi: set ft=ruby :
+                                <h1 id="lamp-stack-provisions">LAMP Stack Provisions</h1>
+<p>If you want to provision a LAMP stack using the vagrant file example on the <a href="vagrantfiles.html">Vagrantfiles</a> page, create a file called bootstrap.sh that contains the example below and place it in the same directory as the vagrant file.</p>
+<pre><code># Update Packages
+apt-get update
+# Upgrade Packages
+apt-get upgrade
 
-# All Vagrant configuration is done below. The &quot;2&quot; in Vagrant.configure
-# configures the configuration version (we support older styles for
-# backwards compatibility). Please don&apos;t change it unless you know what
-# you&apos;re doing.
-Vagrant.configure(&quot;2&quot;) do |config|
+# Git
+apt-get install -y git
 
-  # Box Settings
-  config.vm.box = &quot;ubuntu/trusty64&quot;
+# Apache
+apt-get install -y apache2
 
-  # Provider Settings
-  config.vm.provider &quot;virtualbox&quot; do |vb|
-    vb.memory = 2048
-    vb.cpus = 2
-  end
+# Enable Apache Mods
+a2enmod rewrite
 
-  # Network Settings
-  # config.vm.network &quot;forwarded_port&quot;, guest: 80, host: 8080
-  # config.vm.network &quot;forwarded_port&quot;, guest: 80, host: 8080, host_ip: &quot;127.0.0.1&quot;
-  config.vm.network &quot;private_network&quot;, ip: &quot;192.168.33.10&quot;
-  # config.vm.network &quot;public_network&quot;
+#Add Onrej PPA Repo
+apt-add-repository ppa:ondrej/php
+apt-get update
 
-  # Folder Settings
-  config.vm.synced_folder &quot;.&quot;, &quot;/var/www/html&quot;, :mount_options =&gt; [&quot;dmode=777&quot;,&quot;fmode=666&quot;]
+# Install PHP
+apt-get install -y php7.2
 
-  # Provision Settings
-  config.vm.provision &quot;shell&quot;, path: &quot;bootstrap.sh&quot;
+# PHP Apache Mod
+apt-get install -y libapache2-mod-php7.2
 
-  # config.vm.provision &quot;shell&quot;, inline: &lt;&lt;-SHELL
-  #   apt-get update
-  #   apt-get install -y apache2
-  # SHELL
+# Restart Apache
+service apache2 restart
 
-end
+# PHP Mods
+apt-get install -y php7.2-common
+apt-get install -y php7.2-mcrypt
+apt-get install -y php7.2-zip
+
+# Set MySQL Pass
+debconf-set-selections &lt;&lt;&lt; &apos;mysql-server mysql-server/root_password password root&apos;
+debconf-set-selections &lt;&lt;&lt; &apos;mysql-server mysql-server/root_password_again password root&apos;
+
+# Install MySQL
+apt-get install -y mysql-server
+
+# PHP-MYSQL lib
+apt-get install -y php7.2-mysql
+
+# Restart Apache
+sudo service apache2 restart
 </code></pre>
                                 
                                 </section>
@@ -409,12 +400,12 @@ end
 
             
                 
-                <a href="commandreference.html" class="navigation navigation-prev " aria-label="Previous page: Command Reference">
+                <a href="vagrantfiles.html" class="navigation navigation-prev " aria-label="Previous page: Vagrantfiles">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="lampprovisions.html" class="navigation navigation-next " aria-label="Next page: LAMP Provisions">
+                <a href="../jenkins/" class="navigation navigation-next " aria-label="Next page: Jenkins">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -425,7 +416,7 @@ end
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Vagrantfiles","level":"1.5.2","depth":2,"next":{"title":"LAMP Provisions","level":"1.5.3","depth":2,"path":"vagrant/lampprovisions.md","ref":"vagrant/lampprovisions.md","articles":[]},"previous":{"title":"Command Reference","level":"1.5.1","depth":2,"path":"vagrant/commandreference.md","ref":"vagrant/commandreference.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"vagrant/vagrantfiles.md","mtime":"2018-07-17T17:40:32.072Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-18T00:22:07.086Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"LAMP Provisions","level":"1.5.3","depth":2,"next":{"title":"Jenkins","level":"1.6","depth":1,"path":"jenkins/README.md","ref":"jenkins/README.md","articles":[]},"previous":{"title":"Vagrantfiles","level":"1.5.2","depth":2,"path":"vagrant/vagrantfiles.md","ref":"vagrant/vagrantfiles.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"vagrant/lampprovisions.md","mtime":"2018-07-17T17:40:30.505Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-18T00:57:00.514Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -433,10 +424,6 @@ end
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

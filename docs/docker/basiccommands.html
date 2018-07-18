@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Boilerplate · GitBook</title>
+        <title>Basic Commands · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../maven/" />
+    <link rel="next" href="../vagrant/" />
     
     
     <link rel="prev" href="./" />
@@ -102,9 +102,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="./">
+        <li class="chapter " data-level="1.2" data-path="../html/">
             
-                <a href="./">
+                <a href="../html/">
             
                     
                     HTML
@@ -116,9 +116,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.2.1" data-path="boilerplate.html">
+        <li class="chapter " data-level="1.2.1" data-path="../html/boilerplate.html">
             
-                <a href="boilerplate.html">
+                <a href="../html/boilerplate.html">
             
                     
                     Boilerplate
@@ -179,9 +179,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="../docker/">
+        <li class="chapter " data-level="1.4" data-path="./">
             
-                <a href="../docker/">
+                <a href="./">
             
                     
                     Docker
@@ -193,9 +193,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../docker/basiccommands.html">
+        <li class="chapter active" data-level="1.4.1" data-path="basiccommands.html">
             
-                <a href="../docker/basiccommands.html">
+                <a href="basiccommands.html">
             
                     
                     Basic Commands
@@ -312,7 +312,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Boilerplate</a>
+        <a href=".." >Basic Commands</a>
     </h1>
 </div>
 
@@ -327,21 +327,19 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="html-boilerplate">HTML Boilerplate</h1>
-<p>Empty html template for new pages</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;
-  &lt;head&gt;
-    &lt;meta charset=&quot;utf-8&quot;&gt;
-    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
-    &lt;meta name=&quot;description&quot; content=&quot;This is a description&quot;&gt;
-    &lt;title&gt;Here is the page title&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
+                                <h1 id="basic-commands">Basic Commands</h1>
+<p><strong>docker run ubuntu</strong> - will will pull down the image from docker hub if you don&apos;t already have it. it only needs to do this the first time</p>
+<p><strong>docker ps</strong> - lists all running containers and some basic info regarding them (container id, image, status)</p>
+<p><strong>docker ps -a</strong> - lists all running and previously executed containers</p>
+<p><strong>docker stop [name]</strong> - stops the container based on the name...can also use id</p>
+<p><strong>docker rm [name]</strong> - deletes a stopped container for good</p>
+<p><strong>docker images</strong> - lists downloaded images</p>
+<p><strong>docker rmi [image]</strong> - used to remove images for good...must ensure no containers are currently using....</p>
+<p><strong>docker pull ubuntu</strong> - only downloads the image</p>
+<p><em>docker containers are meant to run applications...if there&apos;s nothing running, it stops the container immediately</em></p>
+<p><strong>docker run -d Ubuntu sleep 1000</strong> - keeps the container alive (sleeping) for a thousand seconds before stopping it....the -d flag runs the command in the background so you can stay at your prompt</p>
+<p><strong>docker exec [name] cat /etc/hosts</strong> - executes a command on a running container...in this example it runs the cat command which returns the contents of the listed directory</p>
 
-  &lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
                                 
                                 </section>
                             
@@ -368,12 +366,12 @@
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: HTML">
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Docker">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../maven/" class="navigation navigation-next " aria-label="Next page: Maven">
+                <a href="../vagrant/" class="navigation navigation-next " aria-label="Next page: Vagrant">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -384,7 +382,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Boilerplate","level":"1.2.1","depth":2,"next":{"title":"Maven","level":"1.3","depth":1,"path":"maven/README.md","ref":"maven/README.md","articles":[{"title":"Project Setup","level":"1.3.1","depth":2,"path":"maven/projectsetup.md","ref":"maven/projectsetup.md","articles":[]},{"title":"SureFire Plugin","level":"1.3.2","depth":2,"path":"maven/surefire.md","ref":"maven/surefire.md","articles":[]}]},"previous":{"title":"HTML","level":"1.2","depth":1,"path":"html/README.md","ref":"html/README.md","articles":[{"title":"Boilerplate","level":"1.2.1","depth":2,"path":"html/boilerplate.md","ref":"html/boilerplate.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"html/boilerplate.md","mtime":"2018-07-17T17:57:59.346Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-18T00:22:07.086Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Basic Commands","level":"1.4.1","depth":2,"next":{"title":"Vagrant","level":"1.5","depth":1,"path":"vagrant/README.md","ref":"vagrant/README.md","articles":[{"title":"Command Reference","level":"1.5.1","depth":2,"path":"vagrant/commandreference.md","ref":"vagrant/commandreference.md","articles":[]},{"title":"Vagrantfiles","level":"1.5.2","depth":2,"path":"vagrant/vagrantfiles.md","ref":"vagrant/vagrantfiles.md","articles":[]},{"title":"LAMP Provisions","level":"1.5.3","depth":2,"path":"vagrant/lampprovisions.md","ref":"vagrant/lampprovisions.md","articles":[]}]},"previous":{"title":"Docker","level":"1.4","depth":1,"path":"docker/README.md","ref":"docker/README.md","articles":[{"title":"Basic Commands","level":"1.4.1","depth":2,"path":"docker/basiccommands.md","ref":"docker/basiccommands.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docker/basiccommands.md","mtime":"2018-07-16T02:55:56.084Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-18T00:57:00.514Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -392,10 +390,6 @@
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

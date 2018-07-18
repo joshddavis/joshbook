@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Basic Commands · GitBook</title>
+        <title>SureFire Plugin · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../vagrant/" />
+    <link rel="next" href="../docker/" />
     
     
-    <link rel="prev" href="./" />
+    <link rel="prev" href="projectsetup.html" />
     
 
     </head>
@@ -134,9 +134,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="../maven/">
+        <li class="chapter " data-level="1.3" data-path="./">
             
-                <a href="../maven/">
+                <a href="./">
             
                     
                     Maven
@@ -148,9 +148,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../maven/projectsetup.html">
+        <li class="chapter " data-level="1.3.1" data-path="projectsetup.html">
             
-                <a href="../maven/projectsetup.html">
+                <a href="projectsetup.html">
             
                     
                     Project Setup
@@ -161,9 +161,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="../maven/surefire.html">
+        <li class="chapter active" data-level="1.3.2" data-path="surefire.html">
             
-                <a href="../maven/surefire.html">
+                <a href="surefire.html">
             
                     
                     SureFire Plugin
@@ -179,9 +179,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="./">
+        <li class="chapter " data-level="1.4" data-path="../docker/">
             
-                <a href="./">
+                <a href="../docker/">
             
                     
                     Docker
@@ -193,9 +193,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.4.1" data-path="basiccommands.html">
+        <li class="chapter " data-level="1.4.1" data-path="../docker/basiccommands.html">
             
-                <a href="basiccommands.html">
+                <a href="../docker/basiccommands.html">
             
                     
                     Basic Commands
@@ -312,7 +312,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Basic Commands</a>
+        <a href=".." >SureFire Plugin</a>
     </h1>
 </div>
 
@@ -327,19 +327,29 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="basic-commands">Basic Commands</h1>
-<p><strong>docker run ubuntu</strong> - will will pull down the image from docker hub if you don&apos;t already have it. it only needs to do this the first time</p>
-<p><strong>docker ps</strong> - lists all running containers and some basic info regarding them (container id, image, status)</p>
-<p><strong>docker ps -a</strong> - lists all running and previously executed containers</p>
-<p><strong>docker stop [name]</strong> - stops the container based on the name...can also use id</p>
-<p><strong>docker rm [name]</strong> - deletes a stopped container for good</p>
-<p><strong>docker images</strong> - lists downloaded images</p>
-<p><strong>docker rmi [image]</strong> - used to remove images for good...must ensure no containers are currently using....</p>
-<p><strong>docker pull ubuntu</strong> - only downloads the image</p>
-<p><em>docker containers are meant to run applications...if there&apos;s nothing running, it stops the container immediately</em></p>
-<p><strong>docker run -d Ubuntu sleep 1000</strong> - keeps the container alive (sleeping) for a thousand seconds before stopping it....the -d flag runs the command in the background so you can stay at your prompt</p>
-<p><strong>docker exec [name] cat /etc/hosts</strong> - executes a command on a running container...in this example it runs the cat command which returns the contents of the listed directory</p>
-
+                                <h1 id="surefire-plugin">SureFire Plugin</h1>
+<p>Plugin helps to execute all test cases under your test folder.</p>
+<p><strong>Plugin Download and Docs</strong> - <a href="http://maven.apache.org/surefire/maven-surefire-plugin/&#x200B;" target="_blank">http://maven.apache.org/surefire/maven-surefire-plugin/&#x200B;</a></p>
+<p>Select &quot;Usage&quot; on the site above to see how the plugin is added to the POM xml file.</p>
+<p>&#x200B;&#x200B;<br></p>
+<h5 id="commands">Commands</h5>
+<ul>
+<li><strong>mvn clean</strong> - deletes all temp files...in general its best to do this before executing...run from project folder that contains POM xml file.</li>
+<li><strong>mvn compile</strong> - compiles code and checks for syntax errors</li>
+<li><strong>mvn test</strong> - triggers test execution...also automatically cleans and compiles prior to executing tests...will check the .m2 repository folder looking to see if dependencies have been downloaded; if they do not exist it will connect and download the dependencies</li>
+</ul>
+<p>NOTE: The word &quot;Test&quot; should be in the filename (classname) or it will not get executed. ie: SeleniumTest.java</p>
+<p>&#x200B;<br></p>
+<h5 id="testng-integration">TestNG Integration</h5>
+<p>In order to get mvn to follow your testng.xml for test execution, you must add the following configuration to your surefire plugin within the POM xml. Place within the <plugin> tag for surefire. NOTE: this assumes you have the testng.xml file created within the project folder.</plugin></p>
+<pre><code>&lt;configuration&gt;
+ &lt;suiteXmlFiles&gt;
+  &lt;suiteXmlFile&gt;testng.xml&lt;/suiteXmlFile&gt;
+ &lt;/suiteXmlFiles&gt;
+&lt;/configuration&gt;
+</code></pre><p>Additionally, you can create multiple <profiles> within the POM xml. One could be called Regression and the other could be called Smoke. Each profile has its own XML file of test cases. You can then execute the profile using the following command.</profiles></p>
+<pre><code>mvn test -PRegression
+</code></pre>
                                 
                                 </section>
                             
@@ -366,12 +376,12 @@
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Docker">
+                <a href="projectsetup.html" class="navigation navigation-prev " aria-label="Previous page: Project Setup">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../vagrant/" class="navigation navigation-next " aria-label="Next page: Vagrant">
+                <a href="../docker/" class="navigation navigation-next " aria-label="Next page: Docker">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -382,7 +392,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Basic Commands","level":"1.4.1","depth":2,"next":{"title":"Vagrant","level":"1.5","depth":1,"path":"vagrant/README.md","ref":"vagrant/README.md","articles":[{"title":"Command Reference","level":"1.5.1","depth":2,"path":"vagrant/commandreference.md","ref":"vagrant/commandreference.md","articles":[]},{"title":"Vagrantfiles","level":"1.5.2","depth":2,"path":"vagrant/vagrantfiles.md","ref":"vagrant/vagrantfiles.md","articles":[]},{"title":"LAMP Provisions","level":"1.5.3","depth":2,"path":"vagrant/lampprovisions.md","ref":"vagrant/lampprovisions.md","articles":[]}]},"previous":{"title":"Docker","level":"1.4","depth":1,"path":"docker/README.md","ref":"docker/README.md","articles":[{"title":"Basic Commands","level":"1.4.1","depth":2,"path":"docker/basiccommands.md","ref":"docker/basiccommands.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"docker/basiccommands.md","mtime":"2018-07-16T02:55:56.084Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-18T00:22:07.086Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"SureFire Plugin","level":"1.3.2","depth":2,"next":{"title":"Docker","level":"1.4","depth":1,"path":"docker/README.md","ref":"docker/README.md","articles":[{"title":"Basic Commands","level":"1.4.1","depth":2,"path":"docker/basiccommands.md","ref":"docker/basiccommands.md","articles":[]}]},"previous":{"title":"Project Setup","level":"1.3.1","depth":2,"path":"maven/projectsetup.md","ref":"maven/projectsetup.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"maven/surefire.md","mtime":"2018-07-16T03:24:30.956Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-07-18T00:57:00.514Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -390,10 +400,6 @@
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
