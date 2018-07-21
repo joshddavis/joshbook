@@ -3,6 +3,7 @@
 * [Intro](README.md)
 * [HTML](html/README.md)
    * [Boilerplate](html/boilerplate.md)
+* [CSS](css/README.md)
 * [Maven](maven/README.md)
    * [Project Setup](maven/projectsetup.md)
    * [SureFire Plugin](maven/surefire.md)
