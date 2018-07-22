@@ -1,6 +1,7 @@
 # Summary
 
 * [Intro](README.md)
+* [Design](design/README.md)
 * [HTML](html/README.md)
    * [Boilerplate](html/boilerplate.md)
 * [CSS](css/README.md)
