@@ -1,0 +1,22 @@
+{
+  "name": "joshbook",
+  "version": "1.0.0",
+  "description": "my personal gitbook",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshddavis/joshbook.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joshddavis/joshbook/issues"
+  },
+  "homepage": "https://github.com/joshddavis/joshbook#readme",
+  "dependencies": {
+    "gitbook-cli": "^2.3.2"
+  }
+}
