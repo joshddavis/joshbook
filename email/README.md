@@ -103,7 +103,7 @@ There a couple tricks for making buttons. The first snippet below uses the paddi
   </tr>
 </table>
 ```
-#### Bulletproof Buttons
+#### Button Resources
 **https://buttons.cm/** - A resource for generating buttons based on CSS selections. The generated button is built using the VML language and works across most clients, but not all.
 
 **http://htmlarrows.com** - A library HTML symbols and ASCII codes to use with button / link creation.
@@ -112,7 +112,7 @@ There a couple tricks for making buttons. The first snippet below uses the paddi
 ### Images
 There are really 3 file types you need to worry about: JPG, PNG, and GIF. JPGs are good for photographs and images with complex color schemes. They can develop artifacts when compressed beyond a reasonable limit. PNG is good for logos, simple color schemes and images requiring transparency. GIF is similar to PNG but is used for animation. Sizes for PNG and GIF can really balloon in size. For emails, it's important to keep the file sizes to a minimum. Use the following default snippet for adding an image.
 ```
-<!-- IMAGE MODULE -->
+<!-- IMAGE COMPONENT -->
 <tr>
   <td align="center" style="padding: 60px 10px 40px 10px;">
     <a href="#">
@@ -122,3 +122,64 @@ There are really 3 file types you need to worry about: JPG, PNG, and GIF. JPGs a
 </tr>
 ```
 Some notes on the above snippet. **Display is set to block** to remove white space between images for outlook clients. Setting **border to 0** ensures a border does not get added when using the image as a link. Lots of styles are included for **alt text** since many people disable email images. Width attributes are for responsive images. You may also use a background image using either CSS or the **background directive** (which is deprecated but still used in a lot of older clients). When using background images, be sure to specify a fallback color to prevent text readability issues.
+
+### Mobile / Responsive
+#### Media Queries (Traditional Method)
+A common media query to use is one with the **max-width** setting. For the example below, any viewport up to 600px will see the styles in the query. Anything over 600 gets the other styles. For the **min-width** setting, anthing over 600 will get the media query styles.
+```
+@media screen and (max-width: 600px) {
+  .responsive-table {
+    width: 100% !important;
+  }
+}
+```
+Use of the **!important** declaration is needed to override inline styles. You can also use the **display: none** rule to show/hide elements.
+
+#### Hybrid / Spongy Method
+Some email clients do not support media queries. If these need to be considered, the following method can be another option for handling responsive behaviors. First, set the **widths to 100%** by default. Then, within the table tag, add a style to include the **max-width** property and set it to something like 600px.
+
+Since Outlook does not support the max-width property, we need to use conditional statements to apply **ghost tables** to our document. See the example below.
+```
+<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%" style="max-width: 600px;">
+<!--[if (gte mso 9)|(IE)]>
+<table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" width="600">
+<tr>
+<td align="center" valign="top" width="600">
+<![endif]-->
+...
+...
+...
+<!--[if (gte mso 9)|(IE)]>
+</td>
+</tr>
+</table>
+<![endif]-->
+```
+Things can get tricky when accounting for multi column layouts using this method. You can find a few good examples in the **addtional resources** section below.
+
+### Additional Resources
+#### Different Layout Approaches
+- **Table of Your Dreams** - https://blog.gorebel.com/email-table-structure/
+
+- **Fab Four Responsive Technique** - https://medium.freecodecamp.org/the-fab-four-technique-to-create-responsive-emails-without-media-queries-baf11fdfa848
+
+- **Coding Mobile First Emails** - https://cm.engineering/coding-mobile-first-emails-1513ac4673e
+
+#### Email Frameworks
+  - Foundation for Emails - foundation.zurb.com
+  - MJML - mjml.io
+  - Litmus Builder
+  - Email on Acid
+
+#### Troubleshooting
+- Litmus and Email on Acid for testing
+- validator.w3.org - used for checking markup...tends to flag lots of tags as deprecated, since email clients still need older tags
+- campaignmonitor.com/css - used for checking which css is supported across clients
+- Double check the outlook math!
+- litmus.com/community/discussions - forums should be free to used
+- email.geeks.chat - popular email slack channel
+- thebetter.email/resources
+
+#### Misc Links
+- **Emmet cheat sheet** - https://docs.emmet.io/cheat-sheet/
+- **Codepen Examples** - https://codepen.io/collection/365c05d843406579c10295f884bfbd62/
